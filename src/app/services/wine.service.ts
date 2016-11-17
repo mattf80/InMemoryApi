@@ -29,10 +29,11 @@ export class WineService {
   }
 
   create(model: Wine): Promise<Wine> {
+    console.log(model);
   return this.http
     .post(this.baseUrl + 'wines', JSON.stringify({model}), {headers: this.headers})
     .toPromise()
-    .then(res => res.json().data)
+    .then(res => res.json().data.model as Wine)
     .catch(this.handleError);
 }
 

@@ -32,7 +32,7 @@ export class AppComponent {
   }
 
   add(model: Wine, isValid: boolean): void {
-    console.log(model, isValid);
+    console.log(model);
     if (!model) { return; }
     this.service.create(model)
       .then(wine => {
