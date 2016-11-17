@@ -1,0 +1,24 @@
+<h1>
+  {{title}}
+</h1>
+
+
+<button type="button" class="btn btn-default" (click)="getWines()">Vino!</button>
+
+<form #form="ngForm" novalidate (ngSubmit)="add(form.value, form.valid)">
+<div>
+  <label>Hero name:</label> 
+  <input [(ngModel)]="wine.name" #name="ngModel" name="name" />
+  <button type="submit">
+    Add
+  </button>
+</div>
+</form>
+
+
+
+<ul>
+  <li *ngFor="let wine of wines">
+    {{wine.name}} - {{wine.country.name}}
+  </li>
+</ul>
