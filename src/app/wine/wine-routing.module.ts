@@ -3,6 +3,10 @@ import { WineComponent } from './wine.component';
 import { WineDetailComponent } from './wine-detail/wine-detail.component';
 import { WineListComponent } from './wine-list/wine-list.component';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -38,10 +42,15 @@ import { RouterModule } from '@angular/router';
 
                 ]
             }
+<<<<<<< HEAD
 
         ],
 
 
+=======
+        ],
+
+>>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
         )],
     exports: [
         RouterModule

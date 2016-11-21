@@ -1,3 +1,60 @@
+<<<<<<< HEAD
 <p>
   wine-list works!
 </p>
+=======
+<h1>
+  {{title}}
+</h1>
+
+<md-list>
+  <md-list-item *ngFor="let wine of wines">
+    <img md-list-avatar src="'{{wine.imageUrl}}'" alt="ch latour">
+    <h3 md-line> {{wine.name}} </h3>
+    <p md-line>
+      <span> {{wine.country.name}} </span>
+      <span class="demo-2"> -- {{wine.country.name}} </span>
+    </p>
+  </md-list-item>
+</md-list>
+
+
+<md-icon>home</md-icon>
+<i class="material-icons">face</i>
+<md-icon fontSet="fa" fontIcon="fa-square"></md-icon>
+
+<form #form="ngForm" novalidate (ngSubmit)="add(form.value, form.valid)">
+  <div>
+    <label>Wine name:</label>
+    <md-input [(ngModel)]="wine.name" #name="ngModel" name="name" placeholder="Wine name"></md-input>
+    <select name="country" [(ngModel)]="wine.country" #country="ngModel">
+    <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}</option>
+  </select>
+
+    <button md-raised-button type="submit"><i class="material-icons">add_circle</i> Add</button>
+
+  </div>
+
+</form>
+
+
+<ul>
+  <li *ngFor="let wine of wines">
+    {{wine.name}} - {{wine.country.name}}
+    <div>
+      <select name="grape" [(ngModel)]="wine.blend.grape" #grape="ngModel">
+        <option *ngFor="let grape of grapes" [ngValue]="grape">{{grape.name}}</option>
+      </select>
+      <input type="text" [(ngModel)]="wine.blend.percentage" name="grapePercentage" #percentage="ngModel">
+      <button (click)="addGrape(wine, grape.value, percentage.value )">
+    Add
+  </button>
+    </div>
+    <ul *ngIf="wine.blend">
+      <li *ngFor="let b of wine.blend">{{b.grape.name}} - {{b.percentage}}</li>
+    </ul>
+
+</ul>
+
+<app-wine-form></app-wine-form>
+>>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
