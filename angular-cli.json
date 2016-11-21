@@ -19,6 +19,10 @@
       "mobile": false,
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
+<<<<<<< HEAD
+=======
+        "../node_modules/font-awesome/css/font-awesome.css",
+>>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
         "styles.css"
       ],
       "scripts": [
@@ -32,7 +36,9 @@
       }
     }
   ],
-  "addons": [],
+  "addons": [
+    "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)" 
+  ],
   "packages": [],
   "e2e": {
     "protractor": {

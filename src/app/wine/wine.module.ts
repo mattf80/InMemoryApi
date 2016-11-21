@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { WineComponent } from './wine.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,8 @@ import { WineDetailComponent } from './wine-detail/wine-detail.component';
   ],
   declarations: [WineComponent, WineFormComponent, WineListComponent, WineDetailComponent]
 =======
+=======
+>>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
 
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -47,6 +50,9 @@ import { WineService } from '../services/wine.service';
   providers: [
     WineService
     ]
+<<<<<<< HEAD
+>>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
+=======
 >>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
 })
 export class WineModule { }

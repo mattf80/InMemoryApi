@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './wine-list.component.html',
   styleUrls: ['./wine-list.component.css']
 })
+<<<<<<< HEAD:src/app/wine/wine-list/wine-list.component.ts
 export class WineListComponent implements OnInit {
 
 <<<<<<< HEAD
@@ -79,5 +80,9 @@ export class WineListComponent implements OnInit {
     this.getGrapes();
 >>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
   }
+=======
+export class AppComponent {
+
+>>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7:src/app/app.component.ts
 
 }
