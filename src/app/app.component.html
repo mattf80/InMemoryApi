@@ -4,14 +4,14 @@
 
 
 <form #form="ngForm" novalidate (ngSubmit)="add(form.value, form.valid)">
-  <div>
-    <label>Wine name:</label>
-    <input [(ngModel)]="wine.name" #name="ngModel" name="name" />
-    <select name="country" [(ngModel)]="wine.country" #country="ngModel">
+  <div class="form-group">
+    <label class="control-label">Wine name:</label>
+    <input class="form-control" [(ngModel)]="wine.name" #name="ngModel" name="name" />
+    <select class="form-control" name="country" [(ngModel)]="wine.country" #country="ngModel">
     <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}</option>
   </select>
 
-    <button type="submit">
+    <button class="btn btn-xs btn-primary" type="submit">
     Add
   </button>
   </div>

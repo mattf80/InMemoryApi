@@ -2,8 +2,12 @@ import { Grape } from './../models/grape';
 import { Country } from './../models/country';
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+
 
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Wine } from './../models/wine';
 
@@ -15,10 +19,9 @@ export class WineService {
 
   constructor(private http: Http) { }
 
-  getWines(): Promise<Wine[]> {
-    return this.http.get(this.baseUrl + 'wines')
-      .toPromise()
-      .then(response => response.json().data as Wine[])
+  getWines(): Observable<Wine[]> {
+    return this.http.get(this.baseUrl + 'wines')      
+      .map(response => response.json().data as Wine[])
       .catch(this.handleError);
   }
 

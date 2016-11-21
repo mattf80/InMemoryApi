@@ -23,8 +23,7 @@ export class AppComponent {
 
   getWines() {
     return this.service.getWines()
-      .then(wines => this.wines = wines)
-      .then(() => console.log(this.wines));
+      .subscribe(wines => this.wines = wines);
   }
 
   getCountries() {
