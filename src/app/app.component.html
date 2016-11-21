@@ -1,42 +1,10 @@
-
-<h1>
-  {{title}}
-</h1>
-
-
-<form #form="ngForm" novalidate (ngSubmit)="add(form.value, form.valid)">
-  <div>
-    <label>Wine name:</label>
-    <input [(ngModel)]="wine.name" #name="ngModel" name="name" />
-    <select name="country" [(ngModel)]="wine.country" #country="ngModel">
-    <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}</option>
-  </select>
-
-    <button type="submit">
-    Add
-  </button>
-  </div>
-
-</form>
-
-
-<ul>
-  <li *ngFor="let wine of wines">
-    {{wine.name}} - {{wine.country.name}}
-    <div>
-      <select name="grape" [(ngModel)]="wine.blend.grape" #grape="ngModel">
-        <option *ngFor="let grape of grapes" [ngValue]="grape">{{grape.name}}</option>
-      </select>
-      <input type="text" [(ngModel)]="wine.blend.percentage" name="grapePercentage" #percentage="ngModel">
-      <button (click)="addGrape(wine, grape.value, percentage.value )">
-    Add
-  </button>
-    </div>
-    <ul *ngIf="wine.blend">
-      <li *ngFor="let b of wine.blend">{{b.grape.name}} - {{b.percentage}}</li>
-    </ul>
-
-</ul>
-
-{{wines | json }}
-
+<div class="md-layout md-js-layout md-layout--fixed-header">
+  <wine-nav></wine-nav>
+  <main class="md-layout__content">
+    <section>
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+  </main>
+</div>

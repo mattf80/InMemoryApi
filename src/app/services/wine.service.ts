@@ -2,10 +2,15 @@ import { Grape } from './../models/grape';
 import { Country } from './../models/country';
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Wine } from './../models/wine';
+
+
 
 @Injectable()
 export class WineService {
@@ -15,17 +20,15 @@ export class WineService {
 
   constructor(private http: Http) { }
 
-  getWines(): Promise<Wine[]> {
+  getWines(): Observable<Wine[]> {
     return this.http.get(this.baseUrl + 'wines')
-      .toPromise()
-      .then(response => response.json().data as Wine[])
+      .map(response => response.json().data as Wine[])
       .catch(this.handleError);
   }
 
-  getCountries(): Promise<Country[]> {
+  getCountries(): Observable<Country[]> {
     return this.http.get(this.baseUrl + 'countries')
-      .toPromise()
-      .then(response => response.json().data as Country[])
+      .map(response => response.json().data as Country[])
       .catch(this.handleError);
   }
 
@@ -36,12 +39,11 @@ export class WineService {
       .catch(this.handleError);
   }
 
-  create(model: Wine): Promise<Wine> {
+  create(model: Wine): Observable<Wine> {
     console.log(model);
   return this.http
     .post(this.baseUrl + 'wines', JSON.stringify({model}), {headers: this.headers})
-    .toPromise()
-    .then(res => res.json().data.model as Wine)
+    .map(res => res.json().data.model as Wine)
     .catch(this.handleError);
 }
 
