@@ -22,15 +22,7 @@ export class WineService {
   constructor(private http: Http) { }
 
   getWines(): Observable<Wine[]> {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    return this.http.get(this.baseUrl + 'wines')      
-=======
     return this.http.get(this.baseUrl + 'wines')
->>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
-=======
-    return this.http.get(this.baseUrl + 'wines')
->>>>>>> 7972afc68a6edfa01e04b77a667a915b4752aaa7
       .map(response => response.json().data as Wine[])
       .catch(this.handleError);
   }
