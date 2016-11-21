@@ -1,3 +1,4 @@
+import { Grape } from './../models/grape';
 import { Country } from './../models/country';
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
@@ -25,6 +26,13 @@ export class WineService {
     return this.http.get(this.baseUrl + 'countries')
       .toPromise()
       .then(response => response.json().data as Country[])
+      .catch(this.handleError);
+  }
+
+    getGrapes(): Promise<Grape[]> {
+    return this.http.get(this.baseUrl + 'grapes')
+      .toPromise()
+      .then(response => response.json().data as Grape[])
       .catch(this.handleError);
   }
 

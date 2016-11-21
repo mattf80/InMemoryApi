@@ -4,7 +4,10 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryWineService implements InMemoryDbService {
   createDb() {
     let wines = [
-      { id: 1, name: "Latour", country: { id: 1, name: "France" } }
+      { id: 1, name: "Latour", country: { id: 1, name: "France" }, blend: [
+        { grape: { id: 1, name: "Cabernet"}, percentage: 80 },
+        { grape: { id: 2, name: "Merlot"}, percentage: 20 }
+      ] }
     ];
 
     let countries = [
@@ -12,6 +15,11 @@ export class InMemoryWineService implements InMemoryDbService {
       { id: 2, name: "USA" }
     ];
 
-    return { wines, countries };
+    let grapes = [
+      { id: 1, name: "Cabernet" },
+      { id: 2, name: "Merlot" }
+    ]
+
+    return { wines, countries, grapes };
   }
 }

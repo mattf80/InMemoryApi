@@ -4,27 +4,43 @@
 </h1>
 
 
-<button type="button" class="btn btn-default" (click)="getWines()">Vino!</button>
-
 <form #form="ngForm" novalidate (ngSubmit)="add(form.value, form.valid)">
-<div>
-  <label>Hero name:</label> 
-  <input [(ngModel)]="wine.name" #name="ngModel" name="name" />
-  <select name="country" [(ngModel)]="wine.country" #country="ngModel">
+  <div>
+    <label>Wine name:</label>
+    <input [(ngModel)]="wine.name" #name="ngModel" name="name" />
+    <select name="country" [(ngModel)]="wine.country" #country="ngModel">
     <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}</option>
   </select>
 
-  <button type="submit">
+    <button type="submit">
     Add
   </button>
-</div>
-</form>
+  </div>
 
+</form>
 
 
 <ul>
   <li *ngFor="let wine of wines">
     {{wine.name}} - {{wine.country.name}}
+    <div>
+      <select name="grape" [(ngModel)]="wine.blend.grape" #grape="ngModel">
+        <option *ngFor="let grape of grapes" [ngValue]="grape">{{grape.name}}</option>
+      </select>
+      <input type="text" [(ngModel)]="wine.blend.percentage" name="grapePercentage" #percentage="ngModel">
+      <button (click)="addGrape(wine, grape.value, percentage.value )">
+    Add
+  </button>
+    </div>
+    <ul *ngIf="wine.blend">
+      <li *ngFor="let b of wine.blend">{{b.grape.name}} - {{b.percentage}}</li>
+    </ul>
+
 </ul>
 
+<<<<<<< HEAD
 {{wines | json }}
+=======
+
+{{wines | json }}
+>>>>>>> fa7cfe74496cf3d5ead2cce1390ea6a847cdf333
